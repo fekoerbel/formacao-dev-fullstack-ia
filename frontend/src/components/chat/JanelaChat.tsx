@@ -2,7 +2,7 @@
 
 import useChat from "@/hooks/useChat"
 import { IconMessages, IconReload, IconSend } from "@tabler/icons-react"
-import { useEffect, useRef, useState } from "react"
+import { ChangeEvent, KeyboardEvent, useEffect, useRef, useState } from "react"
 import BalaoMensagem from "./BalaoMensagem"
 import Image from "next/image"
 
@@ -47,9 +47,9 @@ export default function JanelaChat() {
             )}
             <div className="h-px bg-zinc-400 mt-4" />
             <div className="flex items-center gap-2 p-1 m-4 rounded-full h-10 bg-white">
-                <input type="text" className="flex-1 bg-transparent h-8 outline-none pl-3" value={texto} onChange={(e: any) => {
+                <input type="text" className="flex-1 bg-transparent h-8 outline-none pl-3" value={texto} onChange={(e: ChangeEvent<HTMLInputElement>) => {
                     setTexto(e.target.value)
-                }} onKeyDown={(e: any) => {
+                }} onKeyDown={(e: KeyboardEvent<HTMLInputElement>) => {
                     if (e.key === "Enter") enviarMensagem()
                 }} />
                 <button
